@@ -1,0 +1,11 @@
+.gen-button{
+    width: 100px;
+    height: 100px;
+    color: red;
+}
+.nav-bar{
+    width: 100%;
+    background-color: silver;
+    display: flex;
+    justify-content: space-between;
+}
