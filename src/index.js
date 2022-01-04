@@ -5,28 +5,36 @@ import './index.css';
 
 function Button(props) {
   return (
-    <button className="gen-button" onClick={props.onClick}>
-     {props.value}
+    <button className="gen-button" onClick={props.clickEvent} value={props.val}>
+     {props.val}
     </button>
   );
 }
 
-
 class NavBar extends React.Component {
-  renderButton(i) {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  renderButton(i, id, event) {
     return (
-      <Button
-        value={i}
+      <Button key={id}
+        val={i} 
+        clickEvent={event}
       />
     );
   }
 
+  handleClick(e){
+    console.log(e.target.value);
+  }
+
   render() {
+    const current = this.props.navigation;
     return (
         <div className="nav-bar">
-          {this.renderButton(1)}
-          {this.renderButton(1)}
-          {this.renderButton(2)}
+          {current.map((button, index) => 
+          this.renderButton(current[index], index, this.handleClick))}
         </div>
     );
   }
@@ -36,17 +44,19 @@ class Page extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      navigation: props.bar,
-      title: "Ross Snyder"
+      title: "Ross Snyder",
+      navigation: ["Home", "Projects", "About Me", "More"]
     };
   }
-  render
+
+
   render() {
-    const current = this.state.navigation;
     return (
         <div className="Page">
           <h1>{this.state.title}</h1>
-          <NavBar /> 
+          <NavBar 
+          navigation={this.state.navigation}
+          /> 
         </div>
     );
   }
@@ -54,4 +64,4 @@ class Page extends React.Component {
 
 // ========================================
 
-ReactDOM.render(<Page bar={Array(3).fill(0, 2)} />, document.getElementById("root"));
+ReactDOM.render(<Page  />, document.getElementById("root"));
