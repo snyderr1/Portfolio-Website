@@ -26,7 +26,8 @@ class NavBar extends React.Component {
   }
 
   handleClick(e){
-    console.log(e.target.value);
+    console.log("nice!");
+    this.props.changePage(e.target.value);
   }
 
   render() {
@@ -43,12 +44,19 @@ class NavBar extends React.Component {
 class Page extends React.Component {
   constructor(props) {
     super(props);
+    this.changePage = this.changePage.bind(this)
     this.state = {
       title: "Ross Snyder",
       navigation: ["Home", "Projects", "About Me", "More"]
     };
   }
-
+  changePage(nTitle){
+    var old = this.state;
+    this.setState({
+      title: nTitle,
+      navigation: old.navigation
+    });
+  }
 
   render() {
     return (
@@ -56,6 +64,7 @@ class Page extends React.Component {
           <h1>{this.state.title}</h1>
           <NavBar 
           navigation={this.state.navigation}
+          changePage={this.changePage}
           /> 
         </div>
     );
