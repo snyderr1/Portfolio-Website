@@ -41,13 +41,32 @@ class NavBar extends React.Component {
   }
 }
 
+class Content extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e){
+    
+  }
+
+  render() {
+
+    return (
+        <div className="page-content">
+          <img className="mainimg" src={this.props.source} alt={this.props.alt}></img>
+        </div>
+    );
+  }
+}
 class Page extends React.Component {
   constructor(props) {
     super(props);
     this.changePage = this.changePage.bind(this)
     this.state = {
       title: "Ross Snyder",
-      navigation: ["Home", "Projects", "About Me", "More"]
+      navigation: ["Home", "Projects", "About", "More"]
     };
   }
   changePage(nTitle){
@@ -66,6 +85,7 @@ class Page extends React.Component {
           navigation={this.state.navigation}
           changePage={this.changePage}
           /> 
+          <Content source={this.state.title + ".jpg"} alt={this.state.title}/>
         </div>
     );
   }
