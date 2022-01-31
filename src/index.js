@@ -26,7 +26,6 @@ class NavBar extends React.Component {
   }
 
   handleClick(e){
-    console.log("nice!");
     this.props.changePage(e.target.value);
   }
 
@@ -52,7 +51,6 @@ class Content extends React.Component {
   }
 
   render() {
-
     return (
         <div className="page-content">
           <img className="mainimg" src={this.props.source} alt={this.props.alt}></img>
@@ -65,12 +63,15 @@ class Page extends React.Component {
     super(props);
     this.changePage = this.changePage.bind(this)
     this.state = {
-      title: "Ross Snyder",
+      title: "Ross Snyder: Cyber Solutions",
       navigation: ["Home", "Projects", "About", "More"]
     };
   }
   changePage(nTitle){
     var old = this.state;
+    if(nTitle === "Home"){
+      nTitle = "Ross Snyder: Cyber Solutions";
+    }
     this.setState({
       title: nTitle,
       navigation: old.navigation
