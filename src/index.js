@@ -5,7 +5,7 @@ import './index.css';
 
 function Button(props) {
   return (
-    <button className="gen-button" onClick={props.clickEvent} value={props.val} onMouseEnter={props.changeStyle}>
+    <button className="gen-button" onClick={props.clickEvent} value={props.val} onMouseEnter={props.onHover} onMouseLeave={props.exitHover}>
      {props.val}
     </button>
   );
@@ -15,21 +15,27 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.changeStyle = this.onHover.bind(this);
+    this.revertStyle = this.exitHover.bind(this);
   }
 
 
-  renderButton(i, id, event, interact) {
+  renderButton(i, id, event, interact, exit) {
     return (
       <Button key={id}
         val={i} 
         clickEvent={event}
-        onMouseOver={interact}
+        onHover={interact}
+        exitHover={exit}
       />
     );
   }
 
-  changeStyle(e){
-    e.target.style.color = 'red';
+  onHover(e){
+    e.target.style.color = 'yellow';
+  }
+  exitHover(e){
+    e.target.style.color = 'white';
     console.log("?");
   }
 
@@ -42,7 +48,7 @@ class NavBar extends React.Component {
     return (
         <div className="nav-bar">
           {current.map((button, index) => 
-          this.renderButton(current[index], index, this.handleClick), this.changeStyle)}
+          this.renderButton(current[index], index, this.handleClick, this.changeStyle, this.revertStyle))}
         </div>
     );
   }
