@@ -5,7 +5,7 @@ import './index.css';
 
 function Button(props) {
   return (
-    <button className="gen-button" onClick={props.clickEvent} value={props.val}>
+    <button className="gen-button" onClick={props.clickEvent} value={props.val} onMouseEnter={props.changeStyle}>
      {props.val}
     </button>
   );
@@ -16,13 +16,21 @@ class NavBar extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
-  renderButton(i, id, event) {
+
+
+  renderButton(i, id, event, interact) {
     return (
       <Button key={id}
         val={i} 
         clickEvent={event}
+        onMouseOver={interact}
       />
     );
+  }
+
+  changeStyle(e){
+    e.target.style.color = 'red';
+    console.log("?");
   }
 
   handleClick(e){
@@ -34,7 +42,7 @@ class NavBar extends React.Component {
     return (
         <div className="nav-bar">
           {current.map((button, index) => 
-          this.renderButton(current[index], index, this.handleClick))}
+          this.renderButton(current[index], index, this.handleClick), this.changeStyle)}
         </div>
     );
   }
@@ -63,14 +71,14 @@ class Page extends React.Component {
     super(props);
     this.changePage = this.changePage.bind(this)
     this.state = {
-      title: "Ross Snyder: Cyber Solutions",
+      title: "Ross Snyder",
       navigation: ["Home", "Projects", "About", "More"]
     };
   }
   changePage(nTitle){
     var old = this.state;
     if(nTitle === "Home"){
-      nTitle = "Ross Snyder: Cyber Solutions";
+      nTitle = "Ross Snyder";
     }
     this.setState({
       title: nTitle,

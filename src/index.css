@@ -1,11 +1,26 @@
 .gen-button{
     width: 25%;
     height: 75px;
-    color: #00ff40;
     text-align: left;
-    font-family: 'Genos', sans-serif;
+    font-family: 'droid-serif', sans-serif;
+    font-size: 1.5vw;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 2px;
+    font-weight: bold;
     background-color: #4e4e4e;
-    font-size: 1vw;
+}
+.foc-button{
+    width: 25%;
+    height: 75px;
+    text-align: left;
+    font-family: 'droid-serif', sans-serif;
+    font-size: 1.5vw;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 2px;
+    font-weight: bold;
+    background-color: #4e4e4e;
 }
 .nav-bar{
     background-color: silver;
@@ -23,9 +38,10 @@
 body{
     min-height: 100vh;
     width: 100%;
+    margin: 0;
     /**background-image: url("background.jpg");**/
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(50,0,176,1) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(255, 255, 255) 100%);
 }
 #root{
     display: contents;
@@ -33,11 +49,11 @@ body{
 }
 
 h1{
-    font-family: 'Genos', sans-serif;
-    font-size: 3vw;
-    color: #00ff40;
-    -webkit-text-stroke-color: #4e4e4e;
+    font-family: 'droid-serif', sans-serif;
+    font-size: 2vw;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 2px;
     margin: 0;
-
+    background-color: #919191;
 }
