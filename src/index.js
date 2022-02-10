@@ -32,7 +32,7 @@ class NavBar extends React.Component {
   }
 
   onHover(e){
-    e.target.style.color = 'yellow';
+    e.target.style.color = 'rgb(64, 116, 76)';
     //e.target.style.background = "linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(0, 0, 0) 100%)";
   }
   exitHover(e){
