@@ -1,29 +1,18 @@
 .gen-button{
     width: 25%;
     height: 100%;
-    text-align: left;
-    font-family: 'droid-serif', sans-serif;
-    font-size: 1.5vw;
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke-color: #000000;
-    -webkit-text-stroke-width: 2px;
-    font-weight: bold;
     background: #ffffff00;
     /*border-radius:15px;*/
-    margin: 0;
-    border: 0;
     text-align: center;
-
-}
-.foc-button{
-    text-align: left;
     font-family: 'droid-serif', sans-serif;
     font-size: 1.5vw;
     color: rgb(255, 255, 255);
     -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 2px;
     font-weight: bold;
-    background-color: #ffffff00;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
 }
 .nav-bar{
     display: flex;
@@ -37,7 +26,7 @@
 .Page{
     height:100vh;
     background-image: url(greenwarm.jpg);
-    
+    overflow: hidden;
     /*background: linear-gradient(0deg, rgb(9, 94, 1) 0%, rgb(7, 231, 37) 100%);*/
 }
 /*.page-content{

@@ -1,24 +1,121 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+/*import ReactDOM from 'react-dom';
+import { useState } from 'react';*/
+/*import { unstable_concurrentAct } from 'react-dom/cjs/react-dom-test-utils.production.min'; */
+import './index.css';
+
+function Button(props) {
+  return (
+    <button className="gen-button" onClick={props.clickEvent} value={props.val} onMouseEnter={props.onHover} onMouseLeave={props.exitHover}>
+      {props.val}
+    </button>
+  );
+}
+
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.changeStyle = this.onHover.bind(this);
+    this.revertStyle = this.exitHover.bind(this);
+  }
+
+
+  renderButton(i, id, event, interact, exit) {
+    return (
+      <Button key={id}
+        val={i} 
+        clickEvent={event}
+        onHover={interact}
+        exitHover={exit}
+      />
+    );
+  }
+
+  onHover(e){
+    e.target.style.color = 'rgb(64, 116, 76)';
+    e.target.style.background = 'rgba(150, 185, 55, 0.2)';
+    e.target.style.transform = 'scale(1.5, 1)';
+    e.target.style.textTransform= 'full-width';
+  }
+  exitHover(e){
+    e.target.style.color = 'white';
+    e.target.style.background = '#ffffff00';
+    e.target.style.transform = 'scale(1, 1)';
+    e.target.style.textTransform= 'None';
+    
+  }
+
+  handleClick(e){
+    this.props.changePage(e.target.value);
+  }
+
+  render() {
+    const current = this.props.navigation;
+    return (
+        <div className="nav-bar">
+          {current.map((button, index) => 
+          this.renderButton(current[index], index, this.handleClick, this.changeStyle, this.revertStyle))}
+        </div>
+    );
+  }
+}
+
+class Content extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e){
+    
+  }
+
+  render() {
+    return (
+        <div className="page-content">
+          <img className="mainimg" src={this.props.source} alt={this.props.alt}></img>
+        </div>
+    );
+  }
+}
+class Page extends React.Component {
+  constructor(props) {
+    super(props);
+    this.changePage = this.changePage.bind(this)
+    this.state = {
+      title: "Ross Snyder",
+      navigation: ["Home", "Projects", "About", "More"]
+    };
+  }
+  changePage(nTitle){
+    var old = this.state;
+    if(nTitle === "Home"){
+      nTitle = "Ross Snyder";
+    }
+    this.setState({
+      title: nTitle,
+      navigation: old.navigation
+    });
+  }
+
+  render() {
+    return (
+        <div className="Page">
+          <h1>{this.state.title}</h1>
+          <NavBar 
+          navigation={this.state.navigation}
+          changePage={this.changePage}
+          /> 
+          <Content source={this.state.title + ".jpg"} alt={this.state.title}/>
+        </div>
+    );
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-           <code>3--D</code>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Page />
   );
 }
 
