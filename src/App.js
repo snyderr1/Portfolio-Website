@@ -25,16 +25,15 @@ function NavBar(props){
   }
 
   function onHover(e){
-    e.target.style.color = 'rgb(64, 116, 76)';
-    e.target.style.background = 'rgba(150, 185, 55, 0.2)';
-    e.target.style.transform = 'scale(1.5, 1)';
-    e.target.style.textTransform= 'full-width';
+    e.target.style.background = 'rgba(6, 28, 33, .5)';
+    e.target.style.transform = 'scale(1.1, 1)';
+    e.target.style.transition= 'all 0.6s ease';
   }
   function exitHover(e){
     e.target.style.color = 'white';
     e.target.style.background = '#ffffff00';
     e.target.style.transform = 'scale(1, 1)';
-    e.target.style.textTransform= 'None';
+    e.target.style.transition= 'all 0.1s ease';
     
   }
 
@@ -46,7 +45,7 @@ function NavBar(props){
     
       <div className="nav-bar">
         {current.map((button, index) => 
-        renderButton(current[index], index, handleClick, props.changeStyle, props.revertStyle))}
+        renderButton(current[index], index, handleClick, onHover, exitHover))}
       </div>
     );
 }
@@ -62,7 +61,7 @@ function Content(props){
 function Page(props) {
   const initialState = {
     title: "Ross Snyder",
-    navigation: ["Home", "Projects", "About", "More"]
+    navigation: ["HOME", "PROJECTS", "ABOUT", "MORE"]
   }
   const [state, setState] = useState(initialState);
   

@@ -4,12 +4,12 @@
     background: #ffffff00;
     /*border-radius:15px;*/
     text-align: center;
-    font-family: 'droid-serif', sans-serif;
+    font-family: 'Andale Mono', monospace;
     font-size: 1.5vw;
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke-color: #000000;
-    -webkit-text-stroke-width: 2px;
-    font-weight: bold;
+    color: white;
+    /*-webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 2px;*/
+    /*font-weight: bold;*/
     margin: 0;
     border: 0;
     overflow: hidden;
@@ -51,11 +51,12 @@ body{
 }
 
 h1{
-    font-family: 'droid-serif', sans-serif;
-    font-size: 1vw;
+    font-family: 'Andale Mono', monospace;
+    font-size: 1.5vw;
+    font-weight: normal;
     color: rgb(255, 255, 255);
-    -webkit-text-stroke-color: #000000;
-    -webkit-text-stroke-width: 1px;
+    /*-webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;*/
     margin: 0;
     background-color: #ffffff00;
     padding:5px;
@@ -63,6 +64,3 @@ h1{
     height:20%;
 }
 
-h1::after{
-    border-radius: 1em;
-}
