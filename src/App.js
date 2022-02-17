@@ -1,6 +1,4 @@
-import React from 'react';
-/*import ReactDOM from 'react-dom';
-import { useState } from 'react';*/
+import React, { useEffect, useState } from "react";
 /*import { unstable_concurrentAct } from 'react-dom/cjs/react-dom-test-utils.production.min'; */
 import './index.css';
 
@@ -12,16 +10,10 @@ function Button(props) {
   );
 }
 
-class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.changeStyle = this.onHover.bind(this);
-    this.revertStyle = this.exitHover.bind(this);
-  }
+function NavBar(props){
 
-
-  renderButton(i, id, event, interact, exit) {
+  const current = props.navigation;
+  function renderButton(i, id, event, interact, exit) {
     return (
       <Button key={id}
         val={i} 
@@ -32,13 +24,13 @@ class NavBar extends React.Component {
     );
   }
 
-  onHover(e){
+  function onHover(e){
     e.target.style.color = 'rgb(64, 116, 76)';
     e.target.style.background = 'rgba(150, 185, 55, 0.2)';
     e.target.style.transform = 'scale(1.5, 1)';
     e.target.style.textTransform= 'full-width';
   }
-  exitHover(e){
+  function exitHover(e){
     e.target.style.color = 'white';
     e.target.style.background = '#ffffff00';
     e.target.style.transform = 'scale(1, 1)';
@@ -46,71 +38,56 @@ class NavBar extends React.Component {
     
   }
 
-  handleClick(e){
-    this.props.changePage(e.target.value);
+  function handleClick(e){
+    props.changePage(e.target.value);
   }
 
-  render() {
-    const current = this.props.navigation;
-    return (
-        <div className="nav-bar">
-          {current.map((button, index) => 
-          this.renderButton(current[index], index, this.handleClick, this.changeStyle, this.revertStyle))}
-        </div>
-    );
-  }
-}
-
-class Content extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e){
+  return(
     
-  }
-
-  render() {
-    return (
-        <div className="page-content">
-          <img className="mainimg" src={this.props.source} alt={this.props.alt}></img>
-        </div>
+      <div className="nav-bar">
+        {current.map((button, index) => 
+        renderButton(current[index], index, handleClick, props.changeStyle, props.revertStyle))}
+      </div>
     );
-  }
 }
-class Page extends React.Component {
-  constructor(props) {
-    super(props);
-    this.changePage = this.changePage.bind(this)
-    this.state = {
-      title: "Ross Snyder",
-      navigation: ["Home", "Projects", "About", "More"]
-    };
+
+function Content(props){
+    return (
+      <div className="page-content">
+        <img className="mainimg" src={props.source} alt={props.alt}></img>
+      </div>
+    );
+}
+
+function Page(props) {
+  const initialState = {
+    title: "Ross Snyder",
+    navigation: ["Home", "Projects", "About", "More"]
   }
-  changePage(nTitle){
-    var old = this.state;
+  const [state, setState] = useState(initialState);
+  
+
+  function changePage(nTitle){
+    const old = state;
     if(nTitle === "Home"){
       nTitle = "Ross Snyder";
     }
-    this.setState({
+    setState({
       title: nTitle,
       navigation: old.navigation
     });
   }
 
-  render() {
     return (
         <div className="Page">
-          <h1>{this.state.title}</h1>
+          <h1>{state.title}</h1>
           <NavBar 
-          navigation={this.state.navigation}
-          changePage={this.changePage}
+          navigation={state.navigation}
+          changePage={changePage}
           /> 
-          <Content source={this.state.title + ".jpg"} alt={this.state.title}/>
+          <Content source={state.title + ".jpg"} alt={state.title}/>
         </div>
     );
-  }
 }
 
 function App() {
