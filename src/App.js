@@ -24,10 +24,10 @@ function Button(props) {
 function NavBar(props){
   
   const current = props.navigation;
-  function renderButton(i, id, event, interact, exit) {
+  function renderButton(name, event, interact, exit) {
     return (
-      <Button key={id}
-        val={i} 
+      <Button
+        val={name} 
         clickEvent={event}
         onHover={interact}
         exitHover={exit}
@@ -43,8 +43,8 @@ function NavBar(props){
 
   return(
     <div className={props.visibility}>
-      {current.map((button, index) => 
-      renderButton(current[index], index, buttonClick))}
+      {props.navigation.map((button) => 
+      renderButton(button, buttonClick))}
     </div>
   );
 }
@@ -62,7 +62,7 @@ function Page(props) {
   const initialState = {
     title: "HOME",
     navigation: ["HOME", "PROJECTS", "ABOUT", "MORE"],
-    navVis: true
+    navVis: "nav-bar"
   }
   const [state, setState] = useState(initialState);
   
@@ -72,27 +72,28 @@ function Page(props) {
       setState({
         title: nTitle,
         navigation: old.navigation,
-        navVis: true
+        navVis: "nav-bar"
       });
     } else {
       setState({
         title: nTitle,
         navigation: old.navigation,
-        navVis: false
+        navVis: "hid-bar"
       });
     }
     console.log("page changed");
   }
-  if(state.navVis != true){
+  //messy fix this vvvv
+  if(state.navVis != "nav-bar"){
     return (
         <div className="Page">
           <h1>{state.title}</h1>
           <NavBar 
           navigation={state.navigation}
           changePage={changePage}
-          visibility={"hid-bar"}
+          visibility={state.navVis}
           /> 
-          <Content source={state.title + ".jpg"} alt={state.title}/>
+          <Content source={state.title + ".jpg"} alt={state.title} type={state.title}/>
         </div>
     );
   } else {
@@ -103,13 +104,14 @@ function Page(props) {
         <NavBar 
         navigation={state.navigation}
         changePage={changePage}
-        visibility={"nav-bar"}
+        visibility={state.navVis}
         /> 
       </div>
   );
 
-    }
+  }
 }
+
 
 function App() {
   return (
