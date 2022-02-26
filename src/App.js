@@ -50,11 +50,17 @@ function NavBar(props){
 }
 
 function Content(props){
-    return (
-      <div className="page-content">
+  let def = "page-content";
+  if(props.type === "HOME"){
+    def = "home-content"
+  }
+  return (
+    <div className= {def}>
+      <div className="page-window">
         <img className="mainimg" src={props.source} alt={props.alt}></img>
       </div>
-    );
+    </div>
+  );
 }
 
 function Page(props) {
@@ -100,7 +106,7 @@ function Page(props) {
     return (
       <div className="Page">
         <h1>{state.title}</h1>
-        <Content source={state.title + ".jpg"} alt={state.title}/>
+        <Content source={state.title + ".jpg"} alt={state.title} type = {state.title}/>
         <NavBar 
         navigation={state.navigation}
         changePage={changePage}
