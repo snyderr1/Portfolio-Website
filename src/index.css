@@ -34,7 +34,7 @@
     
 }
 
-.nav-bar{
+.home-bar{
     display: flex;
     justify-content: fill;
     top: 0;
@@ -43,14 +43,18 @@
     background: rgba(255, 215, 0, 0.09);
     box-shadow: 100px 30px 100px 100px rgb(5, 25, 32);
 }
-.hid-bar{  
+.nav-bar{  
     display: flex;
     justify-content: fill;
     top: 0;
-    height:20%;
+    height:8%;
     width:100%;
     background: rgba(255, 215, 0, 0.09);
-    box-shadow: 100px 30px 100px 100px rgb(5, 25, 32);
+    /*box-shadow: 100px 30px 100px 100px rgb(5, 25, 32);*/
+}
+.hid-bar{
+    height: 0;
+    width: 0;
 }
 
 .Page{
@@ -59,25 +63,24 @@
     overflow: hidden;
     /*background: linear-gradient(0deg, rgb(9, 94, 1) 0%, rgb(7, 231, 37) 100%);*/
 }
-.page-content{
+.Resume, .Projects, .Whiteboard{
     position: relative;
     top: 0;
-    height:74%;
+    height:86%;
     width:100%;
-    background: rgb(7, 37, 48);
+    background: rgba(7, 37, 48, 0.63);
     display: flex;
     justify-content: center;
     align-items: center;
     /*box-shadow: 100px 100px 100px 100px rgb(5, 25, 32);*/
-     
 }
 
-.home-content{
+.Home{
     position: relative;
     top: 0;
     height:54%;
     width:100%;
-    background: rgb(7, 37, 48);
+    background: rgba(7, 37, 48, 0.63);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,7 +102,6 @@ body{
 }
 #root{
     display: contents;
-    
 }
 
 h1{
