@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useLayoutEffect} from "react";
 /*import { unstable_concurrentAct } from 'react-dom/cjs/react-dom-test-utils.production.min'; */
 import './index.css';
+import Me from './me.jpg';
 //Author: Ross Snyder
 //2021
 
@@ -62,9 +63,9 @@ function Content(props){
     return (
       <Resume />
     );
-  } else if(props.type === "Whiteboard") {
+  } else if(props.type === "Home") {
     return (
-      <Whiteboard />
+      <Home />
     );
   } else {
     //this should spit out an error ideally. only those 4 are in use.
@@ -83,7 +84,14 @@ function Home(props){
   return (
     <div className= "Home">
       <div className="page-window">
-      <img className="portrait" src="me.jpg" alt={props.alt}></img>
+        <img className="portrait" src={Me} alt={props.alt}></img>
+        <div className="home-text">         
+          <p1 className ="home-top-blurb">Welcome! My name is Ross Snyder, and this is my website. I recieved my degree in Computer Science Systems
+          in 2021 with a 3.5 GPA from Oregon State University. </p1>
+          <p1 className = "home-bottom-blurb">I am looking for employment as a web developer or software engineer. 
+          Click the navigation bar or links below to checkout my current projects, previous experience, and more.</p1>
+          <a className="git-link" href="https://github.com/snyderr1/">https://github.com/snyderr1/</a>
+        </div>
       </div>
     </div>
   );
@@ -110,11 +118,11 @@ function Resume(props){
     </div>
   );
 }
-function Whiteboard(props){
+function More(props){
   //def is the name of the content, so that the css can be properly applied
   //for different pages and content types
   return (
-    <div className= "Whiteboard">
+    <div className= "More">
       <div className="page-window">
         <img className="board" src={props.source} alt={props.alt}></img>
       </div>
@@ -127,7 +135,7 @@ function Page(props) {
   //default is home, also setting the default page names and bar position to be passed to children
   const initialState = {
     title: "Home",
-    navigation: ["Home", "Projects", "Resume", "Whiteboard"],
+    navigation: ["Home", "Projects", "Resume", "More"],
     barPos: "bottom"
   }
   const [state, setState] = useState(initialState);
