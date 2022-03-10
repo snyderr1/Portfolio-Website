@@ -7,6 +7,7 @@
     font-family: 'Andale Mono', monospace;
     font-size: 1.5vw;
     color: white;
+    text-decoration: underline;
     /*-webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 2px;*/
     /*font-weight: bold;*/
@@ -49,7 +50,7 @@
     top: 0;
     height:8%;
     width:100%;
-    background: rgba(255, 215, 0, 0.09);
+    background: rgba(0, 0, 0, 0.56);
     /*box-shadow: 100px 30px 100px 100px rgb(5, 25, 32);*/
 }
 .hid-bar{
@@ -65,12 +66,12 @@
     overflow: hidden;
     /*background: linear-gradient(0deg, rgb(9, 94, 1) 0%, rgb(7, 231, 37) 100%);*/
 }
-.Resume, .Projects, .Whiteboard{
+.Blog, .Projects, .More{
     position: relative;
     top: 0;
     height:86%;
     width:100%;
-    background: rgba(7, 37, 48, 0.63);
+    /* background: rgba(7, 37, 48, 0.63);*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,7 +118,7 @@ body{
     flex-direction: column;
 }
 
-p1{
+p{
     font-family: 'droid-serif', "sans-serif";
     font-size: 1vw;
     font-weight: normal;

@@ -55,17 +55,17 @@ function Content(props){
     return (
       <Home />
     );
-  } else if(props.type === "Projects") {
+  } else if(props.type === "Resume & Projects") {
     return (
-      <Projects />
+      <Projects/>
     );
-  } else if(props.type === "Resume") {
+  } else if(props.type === "Blog") {
     return (
-      <Resume />
+      <Blog />
     );
-  } else if(props.type === "Home") {
+  } else if(props.type === "More") {
     return (
-      <Home />
+      <More />
     );
   } else {
     //this should spit out an error ideally. only those 4 are in use.
@@ -86,10 +86,10 @@ function Home(props){
       <div className="page-window">
         <img className="portrait" src={Me} alt={props.alt}></img>
         <div className="home-text">         
-          <p1 className ="home-top-blurb">Welcome! My name is Ross Snyder, and this is my website. I recieved my degree in Computer Science Systems
-          in 2021 with a 3.5 GPA from Oregon State University. </p1>
-          <p1 className = "home-bottom-blurb">I am looking for employment as a web developer or software engineer. 
-          Click the navigation bar or links below to checkout my current projects, previous experience, and more.</p1>
+          <p className ="home-top-blurb">Welcome! My name is Ross Snyder, and this is my website. I recieved my degree in Computer Science Systems
+          in 2021 from Oregon State University. </p>
+          <p className = "home-bottom-blurb">I am looking for employment as a web developer or software engineer. 
+          Click the navigation bar or links below to checkout my current projects, previous experience, and more.</p>
           <a className="git-link" href="https://github.com/snyderr1/">https://github.com/snyderr1/</a>
         </div>
       </div>
@@ -107,11 +107,11 @@ function Projects(props){
     </div>
   );
 }
-function Resume(props){
+function Blog(props){
   //def is the name of the content, so that the css can be properly applied
   //for different pages and content types
   return (
-    <div className= "Resume">
+    <div className= "Blog">
       <div className="page-window">
         
       </div>
@@ -135,7 +135,7 @@ function Page(props) {
   //default is home, also setting the default page names and bar position to be passed to children
   const initialState = {
     title: "Home",
-    navigation: ["Home", "Projects", "Resume", "More"],
+    navigation: ["Home", "Resume & Projects", "Blog", "More"],
     barPos: "bottom"
   }
   const [state, setState] = useState(initialState);
