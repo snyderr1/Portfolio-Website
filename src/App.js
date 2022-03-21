@@ -2,8 +2,21 @@ import React, { useEffect, useState, useRef, useLayoutEffect} from "react";
 /*import { unstable_concurrentAct } from 'react-dom/cjs/react-dom-test-utils.production.min'; */
 import './index.css';
 import Me from './me.jpg';
+import GitIcon from './git.png';
+import EmailIcon from './email.svg';
 //Author: Ross Snyder
 //2021
+
+function ImgLink(props){
+  var newName = props.name;
+  newName = props.name + "-link";
+  return (
+    <div className="imgLink-container">
+      <img className="linkImg" src={props.src} alt={props.alt}></img>
+      <a className={props.name} href={props.link}>{props.linkText}</a>
+    </div>
+  );
+}
 
 //buttons
 function Button(props) {
@@ -55,17 +68,17 @@ function Content(props){
     return (
       <Home />
     );
-  } else if(props.type === "Resume & Projects") {
+  } else if(props.type === "Resume") {
     return (
-      <Projects/>
+      <Resume/>
     );
-  } else if(props.type === "Blog") {
+  } else if(props.type === "Projects") {
     return (
-      <Blog />
+      <Projects />
     );
-  } else if(props.type === "More") {
+  } else if(props.type === "About Me") {
     return (
-      <More />
+      <About />
     );
   } else {
     //this should spit out an error ideally. only those 4 are in use.
@@ -90,8 +103,21 @@ function Home(props){
           in 2021 from Oregon State University. </p>
           <p className = "home-bottom-blurb">I am looking for employment as a web developer or software engineer. 
           Click the navigation bar or links below to checkout my current projects, previous experience, and more.</p>
-          <a className="git-link" href="https://github.com/snyderr1/">https://github.com/snyderr1/</a>
+          <ImgLink name="git" src={GitIcon} link="https://github.com/snyderr1/" linkText="GitHub: https://github.com/snyderr1" />
+          {/* <a className="git-link" href="https://github.com/snyderr1/">GitHub: https://github.com/snyderr1</a> */}
+          {/* <a className="email-link" href="rossesny@gmail.com">Email: rossesny@gmail.com</a> */}
         </div>
+      </div>
+    </div>
+  );
+}
+function Resume(props){
+  //def is the name of the content, so that the css can be properly applied
+  //for different pages and content types
+  return (
+    <div className= "Resume">
+      <div className="page-window">
+        
       </div>
     </div>
   );
@@ -107,22 +133,11 @@ function Projects(props){
     </div>
   );
 }
-function Blog(props){
+function About(props){
   //def is the name of the content, so that the css can be properly applied
   //for different pages and content types
   return (
-    <div className= "Blog">
-      <div className="page-window">
-        
-      </div>
-    </div>
-  );
-}
-function More(props){
-  //def is the name of the content, so that the css can be properly applied
-  //for different pages and content types
-  return (
-    <div className= "More">
+    <div className= "About Me">
       <div className="page-window">
         <img className="board" src={props.source} alt={props.alt}></img>
       </div>
@@ -135,7 +150,7 @@ function Page(props) {
   //default is home, also setting the default page names and bar position to be passed to children
   const initialState = {
     title: "Home",
-    navigation: ["Home", "Resume & Projects", "Blog", "More"],
+    navigation: ["Home", "Resume", "Projects", "About Me"],
     barPos: "bottom"
   }
   const [state, setState] = useState(initialState);
