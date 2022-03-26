@@ -8,8 +8,6 @@ import EmailIcon from './email.svg';
 //2021
 
 function ImgLink(props){
-  var newName = props.name;
-  newName = props.name + "-link";
   return (
     <div className="imgLink-container">
       <img className="linkImg" src={props.src} alt={props.alt}></img>
@@ -17,6 +15,7 @@ function ImgLink(props){
     </div>
   );
 }
+
 
 //buttons
 function Button(props) {
@@ -103,7 +102,10 @@ function Home(props){
           in 2021 from Oregon State University. </p>
           <p className = "home-bottom-blurb">I am looking for employment as a web developer or software engineer. 
           Click the navigation bar or links below to checkout my current projects, previous experience, and more.</p>
-          <ImgLink name="git" src={GitIcon} link="https://github.com/snyderr1/" linkText="GitHub: https://github.com/snyderr1" />
+          <div className = "home-links">
+            <ImgLink name="git" src={GitIcon} link="https://github.com/snyderr1/" linkText="https://github.com/snyderr1" />
+            <ImgLink name="email" src={EmailIcon} link="rossesny@gmail.com" linkText="rossesny@gmail.com" />
+          </div>
           {/* <a className="git-link" href="https://github.com/snyderr1/">GitHub: https://github.com/snyderr1</a> */}
           {/* <a className="email-link" href="rossesny@gmail.com">Email: rossesny@gmail.com</a> */}
         </div>
