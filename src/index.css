@@ -124,9 +124,11 @@ body{
     margin: 0;
     
 }
+
 #root{
     display: contents;
 }
+
 .home-top-blurb, .home-bottom-blurb{
     max-height: 33%;
 }
@@ -136,11 +138,12 @@ body{
     display:flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
 }
 
 p{
     font-family: 'droid-serif', "sans-serif";
-    font-size: 1vw;
+    font-size: 2vh;
     font-weight: normal;
     color: rgb(0, 0, 0);
     text-align: center;
