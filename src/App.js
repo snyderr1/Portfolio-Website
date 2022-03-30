@@ -5,7 +5,17 @@ import Me from './me.jpg';
 import GitIcon from './git.png';
 import EmailIcon from './email.svg';
 //Author: Ross Snyder
-//2021
+//2022
+var projectInfo = [];
+
+function GenericText(props){
+  return(
+    <div className="textBox">
+      <h1 className="textBox-title">{props.title}</h1>
+      <p className="textBox-text">{props.text}</p>
+    </div>
+  )
+}
 
 function ImgLink(props){
   return (
@@ -20,7 +30,7 @@ function ImgLink(props){
 //buttons
 function Button(props) {
   const [status, setStatus] = useState("gen-button"); 
-  //status denotes the button type for styling. hover causees button to expand.
+  //status denotes the button type for styling. hover causes button to expand.
   function onHover(e){
     setStatus("hover-button")
   }
@@ -129,8 +139,9 @@ function Projects(props){
   //for different pages and content types
   return (
     <div className= "Projects">
-      <div className="page-window">
-        
+      <div className="project-container">
+        {projectInfo.map((name, va) => 
+        <GenericText title={name} text={va}/>)}
       </div>
     </div>
   );

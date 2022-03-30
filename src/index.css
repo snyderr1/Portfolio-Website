@@ -74,23 +74,29 @@
     /*box-shadow: 100px 100px 100px 100px rgb(5, 25, 32);*/
 }
 .git, .email{
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .linkImg{
-    max-width: 100%; 
-    height: auto;
+    width: 4.5vw; 
+    height: 8vh;
 
 }
 .home-links{
     display: flex;
-    height: 33%;
-    flex-direction: column;
+    height: auto;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-between;
+
 }
 
 .imgLink-container{
-    display: grid;
-    height: 33%;
+    display: flex;
+    height: auto;
+    justify-content: space-between;
 }
 
 .Home{
@@ -139,6 +145,7 @@ body{
     flex-direction: column;
     height: 100%;
     width: 100%;
+    align-items: center;
 }
 
 p{
