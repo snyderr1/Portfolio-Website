@@ -6,7 +6,7 @@ import GitIcon from './git.png';
 import EmailIcon from './email.svg';
 //Author: Ross Snyder
 //2022
-var projectInfo = {"Test Project 1": "Example Text", "Test Project 2": "Example Text"};
+var projectInfo = {"Test Project 1": "Example Text", "Test Project 2": "Example Text", "Test Project 3": "Example Text", "Test Project 4": "Example Text"};
 
 function GenericText(props){
   return(

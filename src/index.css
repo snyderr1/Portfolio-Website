@@ -111,6 +111,21 @@
     /*box-shadow: 100px 100px 100px 100px rgb(5, 25, 32);*/
 }
 
+.project-container{
+    width: 95%;
+    height: 90%;
+    border-radius: 10px;
+    display: grid;
+    row-gap: 5%;
+    
+}
+
+.textBox{
+    height: auto;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+}
+
 .page-window{
     width: 95%;
     height: 90%;
