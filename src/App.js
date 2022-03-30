@@ -6,7 +6,7 @@ import GitIcon from './git.png';
 import EmailIcon from './email.svg';
 //Author: Ross Snyder
 //2022
-var projectInfo = [];
+var projectInfo = {"Test Project 1": "Example Text", "Test Project 2": "Example Text"};
 
 function GenericText(props){
   return(
@@ -140,8 +140,8 @@ function Projects(props){
   return (
     <div className= "Projects">
       <div className="project-container">
-        {projectInfo.map((name, va) => 
-        <GenericText title={name} text={va}/>)}
+        {Object.entries(projectInfo).map((info) => 
+        <GenericText title={info[0]} text={info[1]}/>)}
       </div>
     </div>
   );
