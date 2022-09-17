@@ -1,5 +1,5 @@
 .gen-button{
-    width: 25%;
+    width: 9%;
     height: 100%;
     background: #ffffff00;
     text-align: center;
@@ -11,7 +11,7 @@
     overflow: hidden;
 }
 .hover-button{
-    width: 25%;
+    width: 10%;
     height: 100%;
     text-align: center;
     font-family: 'Andale Mono', monospace;
@@ -46,7 +46,7 @@
     top: 0;
     height:8%;
     width:100%;
-    background: rgba(0, 0, 0, 0.56);
+    background: rgba(255, 255, 255, 0.438);
     /*box-shadow: 100px 30px 100px 100px rgb(5, 25, 32);*/
 }
 .hid-bar{
@@ -60,6 +60,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.438);
     /*background: linear-gradient(0deg, rgb(9, 94, 1) 0%, rgb(7, 231, 37) 100%);*/
 }
 .Resume, .Projects, .About{
@@ -177,11 +178,11 @@ h1{
     font-family: 'Andale Mono', monospace;
     font-size: 1.5vw;
     font-weight: normal;
-    color: rgb(255, 255, 255);
+    color: #ffffff00;
     /*-webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 1px;*/
     margin: 0;
-    background-color: #ffffff00;
+    background-color:rgba(255, 255, 255, 0.438);
     padding:5px;
     border: 5px solid transparent;
     height:6%;

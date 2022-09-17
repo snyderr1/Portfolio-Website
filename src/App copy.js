@@ -63,10 +63,29 @@ function NavBar(props){
 }
 
 function Content(props){
-  return(
-    <div className="Content"></div>
-  );
-  
+  //render the correct page content based on current title
+  if(props.type === "Home") {
+    return (
+      <Home />
+    );
+  } else if(props.type === "Resume") {
+    return (
+      <Resume/>
+    );
+  } else if(props.type === "Projects") {
+    return (
+      <Projects />
+    );
+  } else if(props.type === "About Me") {
+    return (
+      <About />
+    );
+  } else {
+    //this should spit out an error ideally. only those 4 are in use.
+    return (
+      <Home />
+    );
+  }
 
   console.log(props.type);
 }
@@ -134,9 +153,9 @@ function Page(props) {
   const now = useRef("Home");
   //default is home, also setting the default page names and bar position to be passed to children
   const initialState = {
-    title: "Home"
-    //navigation: ["Home", "Resume", "Projects", "About Me"],
-    //barPos: "bottom"
+    title: "Home",
+    navigation: ["Home", "Resume", "Projects", "About Me"],
+    barPos: "bottom"
   }
   const [state, setState] = useState(initialState);
   
@@ -153,16 +172,27 @@ function Page(props) {
   return (
       <div className="Page">
         <h1>{state.title}</h1>
-        <div className="content-container">
-
-        </div>
+        <NavBar 
+        //navigation={state.navigation}
+        //changePage={changePage}
+        //shown={(state.title !== "Home" && state.barPos ==="top") ? true : false}
+        //type={"nav-bar"}
+        /> 
+        { <Content type={state.title}/> 
+        <NavBar 
+        navigation={state.navigation}
+        changePage={changePage}
+        shown={(state.title === "Home" && state.barPos ==="bottom") ? true : false}
+        ype={"home-bar"}
+        >  
+        }
       </div>
   );
 }
 
 function Overlay(props) {
   return (
-    <div className= "Overlay"></div>
+    <div className= "Overlay"
   )
 }
 
