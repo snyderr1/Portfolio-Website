@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useLayoutEffect} from "react";
+//import {Routes, Route, useNavigate} from 'react-router-dom';
 /*import { unstable_concurrentAct } from 'react-dom/cjs/react-dom-test-utils.production.min'; */
 import './index.css';
 import Me from './me.jpg';
@@ -48,17 +49,8 @@ function Button(props) {
 //navigation bar
 function NavBar(props){
 
-  function buttonClick(e){
-    //change to the page to the buttons value, ie the new page name
-    console.log("target value is:", e.target);
-    props.changePage(e.target.value);
-    
-  }
   return(
-    <div className={props.type}>
-      {props.navigation.map((name) => 
-      <Button key={name} type={name} clickEvent={buttonClick} />)}
-    </div>
+    <div className="NavBar"/>
   );
 }
 
@@ -131,44 +123,49 @@ function About(props){
 } */
 //the full page
 function Page(props) {
-  const now = useRef("Home");
-  //default is home, also setting the default page names and bar position to be passed to children
-  const initialState = {
-    title: "Home"
-    //navigation: ["Home", "Resume", "Projects", "About Me"],
-    //barPos: "bottom"
-  }
-  const [state, setState] = useState(initialState);
   
-  // function changePage(nTitle){
-  //   const old = state;
-  //     setState({
-  //       title: nTitle,
-  //       navigation: old.navigation,
-  //       barPos: "bottom"
-  //     });
-    
-  //   console.log("page changed");
-  // }
-  return (
-      <div className="Page">
-        <h1>{state.title}</h1>
-        <div className="content-container">
+  //default is home, also setting the default page names and bar position to be passed to children
+  //const now = useRef("Home");
+  
+  
+  
 
-        </div>
-      </div>
+  return (
+    <div className="Page">
+      
+
+    </div>
   );
 }
 
-function Overlay(props) {
-  return (
-    <div className= "Overlay"></div>
-  )
-}
 
 function App() {
+
+  
+  const initialState = {
+    title: "Home",
+    navigation: ["Home", "Resume", "Projects", "About Me"]
+    //barPos: "bottom"
+  }
+
+  const [state, setState] = useState(initialState);
+  function setTitle(nTitle){
+    const old = state;
+      setState({
+      title: nTitle,
+      navigation: old.navigation
+    });
+  }
+  
+  
   return (
-    <Page />
+    <Page >
+      <NavBar navigation={state.navigation}>
+      {state.navigation.map((name) => 
+      <Button key={name} type={name} clickEvent={setTitle} />)}
+      </NavBar>
+      <Content type={state.title}/>
+    </Page>
   );
 }
 
