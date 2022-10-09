@@ -48,15 +48,17 @@ function Button(props) {
 }
 //navigation bar
 function NavBar(props){
-
   return(
-    <div className="NavBar"/>
+    <div className="nav-bar">
+      <h1 className="nav-title">Ross Snyder</h1>
+      {props.children}
+    </div>
   );
 }
 
 function Content(props){
   return(
-    <div className="Content"></div>
+    <div className="Home"></div>
   );
   
 
@@ -126,13 +128,9 @@ function Page(props) {
   
   //default is home, also setting the default page names and bar position to be passed to children
   //const now = useRef("Home");
-  
-  
-  
-
   return (
     <div className="Page">
-      
+      {props.children}
 
     </div>
   );
@@ -160,12 +158,13 @@ function App() {
   
   return (
     <Page >
-      <NavBar navigation={state.navigation}>
+    <NavBar>
       {state.navigation.map((name) => 
       <Button key={name} type={name} clickEvent={setTitle} />)}
-      </NavBar>
+    </NavBar>
       <Content type={state.title}/>
     </Page>
+    
   );
 }
 
