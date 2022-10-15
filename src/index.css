@@ -71,7 +71,7 @@
 }
 
 .Page{
-    height:100vh;
+    
     background-image: url(greenwarm.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -79,12 +79,12 @@
     background-color: rgba(255, 255, 255, 0.438);
     /*background: linear-gradient(0deg, rgb(9, 94, 1) 0%, rgb(7, 231, 37) 100%);*/
 }
-.Resume, .Projects, .About{
+.Resume, .Projects, .About, .Home{
     position: relative;
     top: 0;
     height:86%;
     width:100%;
-    /* background: rgba(7, 37, 48, 0.63);*/
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,6 +143,10 @@ content.Home{
     border-radius: 10px;
 }
 
+.textBox-title{
+    border-radius: 10px 10px 0px 0px;
+}
+
 .page-window{
     width: 95%;
     height: 90%;
@@ -156,6 +160,11 @@ content.Home{
 
 }
 
+.Content{
+    margin-top:auto;
+    height:100vh;
+    background: rgba(7, 37, 48, 0.63);
+}
 body{
     min-height: 100vh;
     width: 100%;
