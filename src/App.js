@@ -68,9 +68,9 @@ function Home(props){
   //for different pages and content types
   return (
     <div className= "Home">
-      <div className="page-window">
-        <img className="portrait" src={Me} alt={props.alt}></img>
-        <div className="home-text">         
+      <div className="page-window">  
+        <div className="home-text">
+        <img className="portrait" src={Me} alt={props.alt}></img>         
           <p className ="home-top-blurb">Welcome! My name is Ross Snyder, and this is my website. I recieved my degree in Computer Science Systems
           in 2021 from Oregon State University. </p>
           <p className = "home-bottom-blurb">Text</p>
