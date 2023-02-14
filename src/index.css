@@ -82,7 +82,7 @@
 .Resume, .Projects, .About, .Home{
     position: relative;
     top: 0;
-    height:86%;
+    height:100%;
     width:100%;
     
     display: flex;
@@ -91,9 +91,7 @@
     /*box-shadow: 100px 100px 100px 100px rgb(5, 25, 32);*/
 }
 .git, .email{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
 }
 
 .linkImg{
@@ -103,10 +101,10 @@
 }
 .home-links{
     display: flex;
-    height: auto;
+    height: 50%;
     width: 50%;
     flex-direction: row;
-    justify-content: space-between;
+    margin-top: 15vh
 
 }
 
@@ -149,14 +147,18 @@ content.Home{
 
 .page-window{
     width: 95%;
-    height: 90%;
+    height: 100%;
+    margin-top: 1%;
     background: rgba(255, 255, 255, 0.75);
     border-radius: 10px;
 
 }
-.portrait{
-    max-height: 15%;
-
+.portrait {
+    justify-self: start;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    max-height: 15vh;
+    max-width: 10vw;
 }
 
 .Content{
@@ -175,15 +177,23 @@ body{
     display: contents;
 }
 
-.home-top-blurb, .home-bottom-blurb{
-    max-height: 33%;
+.home-top-blurb {
+    justify-self: start;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    max-height: 15vh;
+    max-width: 15vw;
+}
+
+.home-bottom-blurb {
+   margin-left: 7.2vw;
+   text-align: left
 }
 .home-text{
-    display:flex;
-    flex-direction: row;
-    height: 100%;
+    display: flex;
+    height: 20vh;
     width: 100%;
-    align-items: center;
+    
 }
 
 p{

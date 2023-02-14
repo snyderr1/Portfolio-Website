@@ -9,16 +9,17 @@ function Home(props) {
             <div className="page-window">
                 <div className="home-text">
                     <img className="portrait" src={props.profile} alt={props.alt}></img>
-                    <p className="home-top-blurb">Welcome! My name is Ross Snyder, and this is my website. I recieved my degree in Computer Science Systems
-                        in 2021 from Oregon State University. </p>
-                    <p className="home-bottom-blurb">Text</p>
+                    <p className="home-top-blurb">Hey. This is my website. React and Node.js.</p>
+                   
+                </div>
+                <p className="home-bottom-blurb">2022</p>
                     <div className="home-links">
                         <ImgLink name="git" src={GitIcon} link="https://github.com/snyderr1/" linkText="https://github.com/snyderr1" />
                         <ImgLink name="email" src={EmailIcon} link="rossesny@gmail.com" linkText="rossesny@gmail.com" />
                     </div>
                     {/* <a className="git-link" href="https://github.com/snyderr1/">GitHub: https://github.com/snyderr1</a> */}
                     {/* <a className="email-link" href="rossesny@gmail.com">Email: rossesny@gmail.com</a> */}
-                </div>
+                
             </div>
         </div>
     );

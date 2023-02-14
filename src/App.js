@@ -101,8 +101,8 @@ function App() {
       <Router>
         <Routes>
           <Route index element={<Page><Home profile={Me} /></Page>} />
-          <Route path="/Home" element={<Page><Home/></Page>} />
-                  <Route path="/Projects" element={<Page><Projects projectInfo={projectInfo} /></Page>} />
+          <Route path="/Home" element={<Page><Home profile={Me} /></Page>} />
+          <Route path="/Projects" element={<Page><Projects projectInfo={projectInfo} /></Page>} />
           <Route path="/Resume" element={<Page><Resume/></Page>} />
           <Route path="/About" element={<Page><About/></Page>} />
         </Routes>
