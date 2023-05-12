@@ -4,7 +4,9 @@ import {
   Routes,
   Route,
   Link
- } from "react-router-dom";
+} from "react-router-dom";
+import ReactPlayer from 'react-player'
+
 /*import { unstable_concurrentAct } from 'react-dom/cjs/react-dom-test-utils.production.min'; */
 import './index.css';
 import Me from './assets/me.jpg';
@@ -39,11 +41,13 @@ function Button(props) {
 }
 //navigation bar
 function NavBar(props){
-  return(
-    <div className="nav-bar">
-      <h1 className="nav-title">Ross Snyder</h1>
-      {props.children}
-    </div>
+    return (
+    <div className= "nav-container">
+        <div className="nav-bar">
+                <h1 className="nav-title"><a href="https://rosscodes.net/" className="site-title">RossCodes.net</a></h1>
+          {props.children}
+        </div>
+     </div>
   );
 }
 
@@ -55,7 +59,13 @@ function About(props){
   return (
     <div className= "About Me">
       <div className="page-window">
-        <img className="board" src={props.source} alt={props.alt}></img>
+              <img className="board" src={props.source} alt={props.alt}></img>
+              <div className="cool-video">
+                  <h1 className="cool-video-blurb">Check out this sweet trick.</h1>
+                  <ReactPlayer light={true} url='https://www.youtube.com/watch?v=8d1Ba01ba3w' pip={true}
+                      muted={true}                  />
+              </div>
+
       </div>
     </div>
   );
